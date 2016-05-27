@@ -57,3 +57,6 @@ cp /usr/local/mysql/etc/my.cnf etc/my.cnf
 
 find ./db -type f -name "*.txt" -print0 | while read -r -d '' file; do mv "$file" "${file%%.txt}.csv"; done
 
+tar cvzf database.`date "+%Y%m%d-%H%M%S"`.tgz db/ etc/
+
+rm -rf db/ etc/
