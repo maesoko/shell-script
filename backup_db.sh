@@ -52,6 +52,8 @@ if [ $# -eq 3 ]; then
   backupDatabase $DB_NAME
 fi
 
-cd db/
-find ./ -type f -name "*.txt" -print0 | while read -r -d '' file; do mv "$file" "${file%%.txt}.csv"; done
+mkdir -p etc/
+cp /usr/local/mysql/etc/my.cnf etc/my.cnf
+
+find ./db -type f -name "*.txt" -print0 | while read -r -d '' file; do mv "$file" "${file%%.txt}.csv"; done
 
