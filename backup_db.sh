@@ -51,3 +51,7 @@ if [ $# -eq 3 ]; then
   chmod 777 db/${DB_NAME}/
   backupDatabase $DB_NAME
 fi
+
+cd db/
+find ./ -type f -name "*.txt" -print0 | while read -r -d '' file; do mv "$file" "${file%%.txt}.csv"; done
+
