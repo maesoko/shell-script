@@ -26,7 +26,7 @@ else
   export MYSQL_PWD=$2
   BACKUP_FILE=$3
 
-  #tar zxvf $BACKUP_FILE
+  tar zxvf $BACKUP_FILE
   for DB in `ls db`; do
     if [[ $DB =~ .*_schema ]] || [ $DB == "sys" ] || [ $DB == "mysql" ]; then
       continue
